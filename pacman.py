@@ -131,6 +131,7 @@ def move():
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
+#Se agrego funcionalidad para que al detectar el fantasma a pacman lo siga
     for point, course in ghosts:
         if valid(point + course):
             point.move(course)
