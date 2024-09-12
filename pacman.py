@@ -135,16 +135,31 @@ def move():
         if valid(point + course):
             point.move(course)
         else:
-            options = [
-                #Vector de cambio de Movimiento
-                vector(10, 0),
-                vector(-10, 0),
-                vector(0, 10),
-                vector(0, -10),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+            if pacman.x == point.x:
+                options = [vector(0, 10), vector(0, -10)]
+                
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                    
+            if pacman.y == point.y:
+                options = [vector(10, 0), vector(-10, 0)]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
+                
+            else:
+                
+                options = [
+                    #Vector de cambio de Movimiento
+                    vector(10, 0),
+                    vector(-10, 0),
+                    vector(0, 10),
+                    vector(0, -10),
+                ]
+                plan = choice(options)
+                course.x = plan.x
+                course.y = plan.y
 
         up()
         goto(point.x + 10, point.y + 10)
